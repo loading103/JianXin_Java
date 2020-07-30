@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">jianxin_jave</string>
+    <string name="net_no_good">网络连接异常，请检查您的网络状态</string>
+</resources>
