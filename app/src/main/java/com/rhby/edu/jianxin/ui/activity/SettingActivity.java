@@ -21,7 +21,7 @@ import butterknife.OnClick;
  * 创建时间：2020/7/30
  */
 public class SettingActivity extends IMBaseActivity implements SwitchButton.OnCheckedChangeListener {
-    @BindView(R.id.common_top)
+    @BindView(R.id.commonTitleView)
     IMCommonTitleView commonTitleView;
     @BindView(R.id.sov1)
     IMComLinearView sov1;

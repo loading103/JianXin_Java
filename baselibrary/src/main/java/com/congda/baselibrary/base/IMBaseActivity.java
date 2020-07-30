@@ -68,8 +68,8 @@ public abstract class IMBaseActivity extends IMBaseSwipeBackActivity implements 
     public void initStatusBar() {
 //        //让底部底色去掉(全局背景色)
 //        IMStatusBarUtil.setTranslucent(this, 0);
-        IMStatusBarUtil.setLightMode(this);
         IMStatusBarUtil.setTranslucentForImageView(this, 0, null);
+        IMStatusBarUtil.setLightMode(this);
     }
     /**
      * 动态添加权限
