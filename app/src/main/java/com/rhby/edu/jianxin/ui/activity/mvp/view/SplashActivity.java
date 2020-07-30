@@ -1,4 +1,4 @@
-package com.rhby.edu.jianxin.ui.activity.mvp.ui;
+package com.rhby.edu.jianxin.ui.activity.mvp.view;
 
 import android.content.Intent;
 import android.view.View;
@@ -44,11 +44,6 @@ public class SplashActivity extends IMBaseMvpActivity<SplashPresenter> implement
         return R.layout.activity_splash;
     }
 
-    @Override
-    public void initStatusBar() {
-        super.initStatusBar();
-        IMStatusBarUtil.setLightMode(this);
-    }
     @Override
     protected void initData() {
         //开启监听网络的服务，处理一开始不开网进去app的情况

@@ -17,14 +17,14 @@ import com.just.agentweb.AgentWeb;
 import com.rhby.edu.jianxin.interfaces.AndroidInterface;
 import com.rhby.edu.jianxin.ui.activity.mvp.contract.ComWebViewContract;
 import com.rhby.edu.jianxin.ui.activity.mvp.model.ComWebViewModel;
-import com.rhby.edu.jianxin.ui.activity.mvp.ui.ComWebViewActivity;
+import com.rhby.edu.jianxin.ui.activity.mvp.view.ComWebViewActivity;
 import com.zhihu.matisse.Matisse;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.rhby.edu.jianxin.ui.activity.mvp.ui.ComWebViewActivity.CANAME_PHOTO;
-import static com.rhby.edu.jianxin.ui.activity.mvp.ui.ComWebViewActivity.CHOOSE_PHOTO;
+import static com.rhby.edu.jianxin.ui.activity.mvp.view.ComWebViewActivity.CANAME_PHOTO;
+import static com.rhby.edu.jianxin.ui.activity.mvp.view.ComWebViewActivity.CHOOSE_PHOTO;
 
 /**
  * @author：jianxin

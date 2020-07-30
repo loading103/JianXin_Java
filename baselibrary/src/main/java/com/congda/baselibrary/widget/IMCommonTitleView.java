@@ -5,6 +5,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.congda.baselibrary.R;
+import com.congda.baselibrary.utils.IMScreenUtil;
 
 
 public class IMCommonTitleView extends LinearLayout {
@@ -55,7 +57,11 @@ public class IMCommonTitleView extends LinearLayout {
         mIvRight = view.findViewById(R.id.iv_top_right);
         mTopView = view.findViewById(R.id.topview);
         mRlTop = view.findViewById(R.id.rl_top);
-
+        mTopView.setVisibility(VISIBLE);
+        //设置mTopView高度为状态栏高度
+        ViewGroup.LayoutParams layoutParams = mTopView.getLayoutParams();
+        layoutParams.height= IMScreenUtil.getStatusHeight(context);
+        mTopView.setLayoutParams(layoutParams);
 
         mRlLeft.setOnClickListener(new OnClickListener() {
             @Override

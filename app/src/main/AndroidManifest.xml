@@ -32,7 +32,7 @@
             android:name="design_height_in_dp"
             android:value="640" /> <!-- arms配置 -->
 
-        <activity android:name=".ui.activity.mvp.ui.SplashActivity">
+        <activity android:name=".ui.activity.mvp.view.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -44,7 +44,10 @@
         <activity android:name=".ui.activity.GuideActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".ui.activity.mvp.ui.ComWebViewActivity"
+        <activity android:name=".ui.activity.SettingActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.activity.mvp.view.ComWebViewActivity"
             android:screenOrientation="portrait"/>
 
     </application>

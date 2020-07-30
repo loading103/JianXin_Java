@@ -43,12 +43,6 @@ public class GuideActivity extends IMBaseActivity implements ViewPager.OnPageCha
     }
 
     @Override
-    public void initStatusBar() {
-        super.initStatusBar();
-        IMStatusBarUtil.setLightMode(this);
-    }
-
-    @Override
     protected void initView() {
         // 初始化引导页视图列表
         for (int i = 0; i < pics.length; i++) {

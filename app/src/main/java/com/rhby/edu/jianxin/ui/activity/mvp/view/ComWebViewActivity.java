@@ -1,9 +1,8 @@
-package com.rhby.edu.jianxin.ui.activity.mvp.ui;
+package com.rhby.edu.jianxin.ui.activity.mvp.view;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.util.Log;
 import android.view.View;
 import android.webkit.ValueCallback;
 import android.webkit.WebResourceRequest;

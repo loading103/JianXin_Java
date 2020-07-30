@@ -4,11 +4,9 @@ package com.rhby.edu.jianxin.ui.activity.mvp.presenter;
 import android.os.Handler;
 
 import com.congda.baselibrary.mvp.BasePresenter;
-import com.congda.baselibrary.net.BaseHttpResult;
 import com.congda.baselibrary.net.BaseObserver;
 import com.congda.baselibrary.rx.RxSchedulers;
 import com.congda.baselibrary.utils.IMToastUtil;
-import com.google.gson.Gson;
 import com.rhby.edu.jianxin.bean.SplashAdBean;
 import com.rhby.edu.jianxin.ui.activity.mvp.contract.SplashContract;
 import com.rhby.edu.jianxin.ui.activity.mvp.model.SplashModel;
@@ -30,7 +28,7 @@ public class SplashPresenter extends BasePresenter<SplashContract.Model,SplashCo
     }
 
     public void getSplashData() {
-       handlerLoadedFail();
+        handlerLoadedFail();
         getModel().getGetAdJson()
                 .compose(RxSchedulers.applySchedulers(getLifecycleProvider()))
                 .subscribe(new BaseObserver<List<SplashAdBean>>(getView(),false) {

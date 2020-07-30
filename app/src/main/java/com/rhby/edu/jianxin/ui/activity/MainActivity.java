@@ -77,7 +77,7 @@ public class MainActivity extends IMBaseActivity implements View.OnClickListener
 
     @Override
     protected void initListener() {
-        viewpager.setCanScrollble(true);
+        viewpager.setCanScrollble(false);
         viewpager.setOffscreenPageLimit(4);
         viewpager.addOnPageChangeListener(this);
     }
