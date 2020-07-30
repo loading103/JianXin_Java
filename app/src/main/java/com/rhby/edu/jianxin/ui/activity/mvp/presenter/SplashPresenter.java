@@ -33,7 +33,7 @@ public class SplashPresenter extends BasePresenter<SplashContract.Model,SplashCo
        handlerLoadedFail();
         getModel().getGetAdJson()
                 .compose(RxSchedulers.applySchedulers(getLifecycleProvider()))
-                .subscribe(new BaseObserver<List<SplashAdBean>>(getView()) {
+                .subscribe(new BaseObserver<List<SplashAdBean>>(getView(),false) {
                     @Override
                     public void onSuccess(List<SplashAdBean>result) {
                         if(loadSuccess){
