@@ -25,7 +25,7 @@ import butterknife.OnClick;
 /**
  * @author：jianxin 创建时间：2020/7/30
  */
-public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements DemoContract.View, View.OnClickListener {
+public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements DemoContract.View{
     @BindView(R.id.commonTitleView)
     IMCommonTitleView commonTitleView;
     @BindView(R.id.btn1)
@@ -77,7 +77,6 @@ public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements De
     protected void initView() {
         commonTitleView.setTopTitle("Demo列表");
         commonTitleView.setTopRightText("保存");
-        commonTitleView.setOnClickRightListener(this);
     }
 
     @Override
@@ -92,47 +91,100 @@ public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements De
         pvOptions= IMTimePickerUtils.getOptionsPickerView(this,food);
 
     }
-    @OnClick({R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4,R.id.btn5,R.id.btn6,R.id.btn6,R.id.btn7,
-            R.id.btn8,R.id.btn9,R.id.btn10,R.id.btn11,R.id.btn12,R.id.btn13,R.id.iv1})
+
+    @OnClick({R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4,R.id.btn5,R.id.btn6,R.id.btn7,
+            R.id.btn8,R.id.btn9,R.id.btn10,R.id.btn11,R.id.btn12,R.id.btn13,R.id.iv1,R.id.re_top_right})
     public void onViewClick(View view){
         switch (view.getId()){
             case R.id.btn1:
+                btn1OnClick();
                 break;
             case R.id.btn2:
+                btn2OnClick();
                 break;
             case R.id.btn3:
+                btn3OnClick();
                 break;
             case R.id.btn4:
+                btn4OnClick();
                 break;
             case R.id.btn5:
+                btn5OnClick();
                 break;
             case R.id.btn6:
+                btn6OnClick();
                 break;
             case R.id.btn7:
+                btn7OnClick();
                 break;
             case R.id.btn8:
+                btn8OnClick();
                 break;
             case R.id.btn9:
+                btn9OnClick();
                 break;
             case R.id.btn10:
+                btn10OnClick();
                 break;
             case R.id.btn11:
+                btn11OnClick();
                 break;
             case R.id.btn12:
+                btn12OnClick();
                 break;
             case R.id.btn13:
+                btn13OnClick();
                 break;
             case R.id.iv1:
                 break;
-        }
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
             case R.id.re_top_right:
                 IMToastUtil.getInstance()._short("保存");
                 break;
         }
+    }
+    private void btn1OnClick() {
+    }
+
+    private void btn2OnClick() {
+    }
+
+    private void btn3OnClick() {
+    }
+
+    private void btn4OnClick() {
+    }
+
+    private void btn5OnClick() {
+
+    }
+
+    private void btn6OnClick() {
+
+    }
+
+    private void btn7OnClick() {
+
+    }
+
+    private void btn8OnClick() {
+
+    }
+
+    private void btn9OnClick() {
+
+    }
+
+    private void btn10OnClick() {
+
+    }
+
+    private void btn11OnClick() {
+
+    }
+
+    private void btn12OnClick() {
+    }
+
+    private void btn13OnClick() {
     }
 }
