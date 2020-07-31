@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,6 +16,7 @@ import com.bigkoo.pickerview.view.TimePickerView;
 import com.congda.baselibrary.app.IMSConfig;
 import com.congda.baselibrary.base.IMBaseMvpActivity;
 import com.congda.baselibrary.service.IMBindServiceDemo;
+import com.congda.baselibrary.service.IMDownLoadService;
 import com.congda.baselibrary.utils.IMSavePhotoUtil;
 import com.congda.baselibrary.utils.IMTimePickerUtils;
 import com.congda.baselibrary.utils.IMToastUtil;
@@ -22,8 +24,11 @@ import com.congda.baselibrary.widget.IMCommonTitleView;
 import com.congda.baselibrary.widget.dialog.IMIosCommonDiglog;
 import com.congda.baselibrary.widget.dialog.IMSheetViewDialog;
 import com.congda.baselibrary.widget.dialogfragment.IMLoginAgreeDialog;
+import com.congda.baselibrary.widget.loading.IMShowLoadiongUtils;
 import com.rhby.edu.jianxin.R;
+import com.rhby.edu.jianxin.ui.activity.AnimationActivity;
 import com.rhby.edu.jianxin.ui.activity.RecycleDemoActivity;
+import com.rhby.edu.jianxin.ui.activity.StartTypeActivity;
 import com.rhby.edu.jianxin.ui.activity.mvp.contract.DemoContract;
 import com.rhby.edu.jianxin.ui.activity.mvp.presenter.DemoPresenter;
 
@@ -37,7 +42,7 @@ import butterknife.OnClick;
 /**
  * @author：jianxin 创建时间：2020/7/30
  */
-public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements DemoContract.View, IMSheetViewDialog.Callback {
+public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements DemoContract.View, IMSheetViewDialog.Callback, IMDownLoadService.ProcessListener {
     @BindView(R.id.commonTitleView)
     IMCommonTitleView commonTitleView;
     @BindView(R.id.btn1)
@@ -66,6 +71,14 @@ public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements De
     Button btn12;
     @BindView(R.id.btn13)
     Button btn13;
+    @BindView(R.id.btn14)
+    Button btn14;
+    @BindView(R.id.btn15)
+    Button btn15;
+    @BindView(R.id.btn16)
+    Button btn16;
+    @BindView(R.id.btn17)
+    Button btn17;
     @BindView(R.id.iv1)
     ImageView iv1;
 
@@ -74,7 +87,10 @@ public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements De
     private ServiceConnection mConn;
     private OptionsPickerView pvOptions;
     private IMBindServiceDemo mServiceDemo;
+    private IMDownLoadService mdownService;
 
+    private Boolean downBind;
+    private ServiceConnection mdownConn;
     @Override
     protected DemoPresenter createPresenter() {
         return new DemoPresenter();
@@ -101,11 +117,32 @@ public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements De
         food.add("B");
         food.add("C");
         pvOptions= IMTimePickerUtils.getOptionsPickerView(this,food);
-
+        initDownLoadService();
     }
 
+    private void initDownLoadService() {
+        Intent intent =new Intent(this, IMDownLoadService.class);
+        mdownConn=new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName componentName, IBinder service) {
+                IMDownLoadService.DownBind bind = (IMDownLoadService.DownBind)service;
+                mdownService = bind.getService();
+                mdownService.setProcessListener(DemoActivity.this);
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName componentName) {
+
+            }
+
+        };
+        downBind = bindService(intent, mdownConn, Context.BIND_AUTO_CREATE);
+    }
+
+
     @OnClick({R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4,R.id.btn5,R.id.btn6,R.id.btn7,
-            R.id.btn8,R.id.btn9,R.id.btn10,R.id.btn11,R.id.btn12,R.id.btn13,R.id.iv1,R.id.re_top_right})
+            R.id.btn8,R.id.btn9,R.id.btn10,R.id.btn11,R.id.btn12,R.id.btn13,R.id.btn14,R.id.btn15,
+            R.id.btn16,R.id.btn17, R.id.iv1,R.id.re_top_right})
     public void onViewClick(View view){
         switch (view.getId()){
             case R.id.btn1:
@@ -147,6 +184,18 @@ public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements De
             case R.id.btn13:
                 btn13OnClick();
                 break;
+            case R.id.btn14:
+                btn14OnClick();
+                break;
+            case R.id.btn15:
+                btn15OnClick();
+                break;
+            case R.id.btn16:
+                btn16OnClick();
+                break;
+            case R.id.btn17:
+                btn17OnClick();
+                break;
             case R.id.iv1:
                 break;
             case R.id.re_top_right:
@@ -154,6 +203,8 @@ public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements De
                 break;
         }
     }
+
+
     private void btn1OnClick() {
         showLoadingDialog();
         btn1.postDelayed(new Runnable() {
@@ -169,7 +220,7 @@ public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements De
     }
 
     private void btn3OnClick() {
-       new IMSheetViewDialog().shows(getSupportFragmentManager(),this);
+        new IMSheetViewDialog().shows(getSupportFragmentManager(),this);
     }
 
     private void btn4OnClick() {
@@ -237,6 +288,25 @@ public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements De
         loginDiglog.show(getSupportFragmentManager(), "LoginAgreeDialogFragment");
     }
 
+    private void btn14OnClick() {
+//        startActivity(KeyBoardActivity.class,false);
+    }
+
+    private void btn15OnClick() {
+        if(mdownService!=null){
+            mdownService.downLoadFile("data/upload/20200508/5eb5530f0019e.mp4");
+        }
+    }
+
+    private void btn16OnClick() {
+        startActivity(AnimationActivity.class,false);
+    }
+
+    private void btn17OnClick() {
+        startActivity(StartTypeActivity.class,false);
+    }
+
+
     @Override
     public void onClick(int position) {
         switch (position){
@@ -266,5 +336,29 @@ public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements De
             }
             isBind = false;
         }
+        if (downBind) {
+            unbindService(mdownConn);
+            if (mdownService != null) {
+                mdownService.stopSelf();
+            }
+            downBind = false;
+        }
+    }
+
+
+    /**
+     * 显示下载进度
+     */
+    private void showProssDialog(int pross, String erro ) {
+        if(TextUtils.isEmpty(erro)){
+            IMShowLoadiongUtils.getInstance().showLoadingDialogProgress(this,pross,true);
+        }else{
+            IMToastUtil.getInstance()._short(erro);
+        }
+    }
+
+    @Override
+    public void onProcessListener(int pross, String erro) {
+        showProssDialog(pross,erro);
     }
 }

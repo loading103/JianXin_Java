@@ -7,7 +7,7 @@ import java.io.File;
 public class IMSConfig {
 
     public static final String BASE_URL="https://www.wanandroid.com/";
-
+    public static final String BASE_VIDEO_URL="http://47.75.111.156/";
 //    public static final String BASE_URL="http://api.teliao.cc/tomato-app/";
 
     public static final String APP_PACKNAME = "com.rhby.edu.jianxin";

@@ -69,7 +69,7 @@ public class DownLoadManager {
         retrofit = new Retrofit.Builder()
                 .client(okHttpClient)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .baseUrl(IMSConfig.BASE_URL)
+                .baseUrl(IMSConfig.BASE_VIDEO_URL)
                 .build();
     }
 
