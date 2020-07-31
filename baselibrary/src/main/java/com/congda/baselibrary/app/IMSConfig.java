@@ -10,6 +10,9 @@ public class IMSConfig {
     public static final String BASE_URL="http://api.teliao.cc/tomato-app/";
     public static final String FIRST_OPEN = "first_open";
 
+    public static final String APP_PACKNAME = "com.rhby.edu.jianxin";
+
+
     /**
      * (本带缓存路径)
      * mnt/sdcard/ 即为SD卡根路径

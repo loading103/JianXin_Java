@@ -53,6 +53,31 @@
         <activity android:name=".ui.activity.mvp.view.ComWebViewActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".ui.activity.RecycleDemoActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.donkingliang.imageselector.PreviewActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+        <activity
+            android:name="com.donkingliang.imageselector.ClipImageActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.donkingliang.imageselector.ImageSelectorActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.rhby.edu.jianxin"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

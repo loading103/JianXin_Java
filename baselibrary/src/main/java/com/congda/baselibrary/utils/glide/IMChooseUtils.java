@@ -9,6 +9,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.congda.baselibrary.R;
+import com.congda.baselibrary.app.IMSConfig;
 import com.zhihu.matisse.Matisse;
 import com.zhihu.matisse.MimeType;
 import com.zhihu.matisse.filter.Filter;
@@ -30,7 +31,7 @@ public class IMChooseUtils {
                 .countable(true)  //是否显示数据
                 .capture(true)      //是否显示拍照
                 ////参数1 true表示拍照存储在共有目录，false表示存储在私有目录；参数2与 AndroidManifest中authorities值相同，用于适配7.0系统 必须设置
-                .captureStrategy(new CaptureStrategy(true, "com.congda.jinxinkt.fileprovider","test"))
+                .captureStrategy(new CaptureStrategy(true, IMSConfig.APP_PACKNAME+".fileprovider","test"))
                 .maxSelectable(maxnumber)
                 .addFilter(new IMGifSizeFilter(320, 320, 10 * Filter.K * Filter.K))
                 .gridExpectedSize(context.getResources().getDimensionPixelSize(R.dimen.grid_expected_size))
@@ -65,7 +66,7 @@ public class IMChooseUtils {
                 .countable(true)  //是否显示数据
                 .capture(true)      //是否显示拍照
                 ////参数1 true表示拍照存储在共有目录，false表示存储在私有目录；参数2与 AndroidManifest中authorities值相同，用于适配7.0系统 必须设置
-                .captureStrategy(new CaptureStrategy(true, "com.congda.jinxinkt.fileprovider","test"))
+                .captureStrategy(new CaptureStrategy(true, IMSConfig.APP_PACKNAME+".fileprovider","test"))
                 .maxSelectable(maxnumber)
                 .addFilter(new IMGifSizeFilter(320, 320, 10 * Filter.K * Filter.K))
                 .gridExpectedSize(context.getResources().getDimensionPixelSize(R.dimen.grid_expected_size))
@@ -101,7 +102,7 @@ public class IMChooseUtils {
                 .showSingleMediaType(true)
                 .countable(true)
                 .capture(false)
-                .captureStrategy(new CaptureStrategy(true, "com.congda.jinxinkt.fileprovider", "test"))
+                .captureStrategy(new CaptureStrategy(true, IMSConfig.APP_PACKNAME+".fileprovider", "test"))
                 .maxSelectable(1)
                 .addFilter(new IMGifSizeFilter(320, 320, 15 * Filter.K * Filter.K))
                 .gridExpectedSize(context.getResources().getDimensionPixelSize(R.dimen.grid_expected_size))

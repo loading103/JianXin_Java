@@ -26,6 +26,9 @@ public class IMIosCommonDiglog {
     }
 
     public void showCommonDiglog(String content, View.OnClickListener listener) {
+        if(shareDialog!=null && shareDialog.isShowing()){
+            shareDialog.dismiss();
+        }
         AlertDialog.Builder builder=new AlertDialog.Builder(context);
         builder.setCancelable(false);
         final View dialogView =  View.inflate(context, R.layout.layout_dialog_common, null);
@@ -61,6 +64,9 @@ public class IMIosCommonDiglog {
     }
 
     public void showSingleCommonDiglog(String content, View.OnClickListener listener) {
+        if(shareDialog!=null && shareDialog.isShowing()){
+            shareDialog.dismiss();
+        }
         AlertDialog.Builder builder=new AlertDialog.Builder(context);
         builder.setCancelable(false);
         final View dialogView =  View.inflate(context, R.layout.layout_dialog_common, null);
@@ -93,6 +99,9 @@ public class IMIosCommonDiglog {
         shareDialog.getWindow().setBackgroundDrawable(context.getResources().getDrawable(R.drawable.im_shape_bg_white_c12));
     }
     public void showSingleCommonDiglog(String content) {
+        if(shareDialog!=null && shareDialog.isShowing()){
+            shareDialog.dismiss();
+        }
         AlertDialog.Builder builder=new AlertDialog.Builder(context);
         builder.setCancelable(false);
         final View dialogView =  View.inflate(context, R.layout.layout_dialog_common, null);
