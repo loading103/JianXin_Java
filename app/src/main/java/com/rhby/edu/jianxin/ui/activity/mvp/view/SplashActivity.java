@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.congda.baselibrary.app.IMSConfig;
+import com.congda.baselibrary.app.IMSpUtil;
 import com.congda.baselibrary.base.IMBaseMvpActivity;
 import com.congda.baselibrary.service.IMStartServiceDemo;
 import com.congda.baselibrary.utils.IMCutTimeDownView;
@@ -65,8 +66,8 @@ public class SplashActivity extends IMBaseMvpActivity<SplashPresenter> implement
      * 判断是不是第一次进去app
      */
     private Boolean isFirstOpen() {
-        if (IMPreferenceUtil.getPreference_Boolean(IMSConfig.FIRST_OPEN, true)) {
-            IMPreferenceUtil.setPreference_Boolean(IMSConfig.FIRST_OPEN, false);
+        if (IMPreferenceUtil.getPreference_Boolean(IMSpUtil.FIRST_OPEN, true)) {
+            IMPreferenceUtil.setPreference_Boolean(IMSpUtil.FIRST_OPEN, false);
             startActivity(GuideActivity.class,true);
             return  true;
         }

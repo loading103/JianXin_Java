@@ -2,18 +2,18 @@ package com.rhby.edu.jianxin.ui.activity;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.congda.baselibrary.base.IMBaseActivity;
-import com.congda.baselibrary.utils.IMNavigarUtils;
+import com.congda.baselibrary.widget.IMNavigarUtils;
 import com.congda.baselibrary.utils.IMScreenUtil;
 import com.rhby.edu.jianxin.R;
 import com.rhby.edu.jianxin.adapter.viewpager.MainViewPagerAdapter;
 import com.rhby.edu.jianxin.ui.fragment.MainSecondFragment;
+import com.rhby.edu.jianxin.ui.fragment.mvp.view.ListFirstFragment;
+import com.rhby.edu.jianxin.ui.fragment.mvp.view.ListSecondFragment;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -62,8 +62,8 @@ public class RecycleDemoActivity extends IMBaseActivity {
 
     @Override
     protected void initData() {
-        fragments.add(new MainSecondFragment());
-        fragments.add(new MainSecondFragment());
+        fragments.add(new ListFirstFragment());
+        fragments.add(new ListSecondFragment());
         fragments.add(new MainSecondFragment());
         MainViewPagerAdapter pagerAdapter =new MainViewPagerAdapter(getSupportFragmentManager(), fragments);
         view_pager.setAdapter(pagerAdapter);

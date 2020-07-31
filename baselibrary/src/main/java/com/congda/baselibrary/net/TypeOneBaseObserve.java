@@ -43,7 +43,7 @@ public abstract class TypeOneBaseObserve<T> implements Observer<TypeOneBaseHttpR
     public void onNext(TypeOneBaseHttpResult<T> result) {
         hideLoadingDialog();
         if (result.isSuccessFul()) {
-            onSuccess(result);
+            onSuccess(result.getData());
         } else {
             //TODO API异常处理
             onFailure(result.getErrorCode()+"",result.getErrorMsg(), false);
@@ -81,7 +81,7 @@ public abstract class TypeOneBaseObserve<T> implements Observer<TypeOneBaseHttpR
      *
      * @param result 服务器返回数据
      */
-    public abstract void onSuccess(TypeOneBaseHttpResult<T> result);
+    public abstract void onSuccess(T result);
 
     /**
      * 请求失败返回

@@ -1,4 +1,4 @@
-package com.congda.baselibrary.utils;
+package com.congda.baselibrary.widget;
 
 import android.content.Context;
 import android.view.View;
@@ -8,6 +8,8 @@ import android.view.animation.DecelerateInterpolator;
 import androidx.viewpager.widget.ViewPager;
 
 import com.congda.baselibrary.R;
+import com.congda.baselibrary.utils.IMResourceUtil;
+import com.congda.baselibrary.utils.IMScaleTransitionPagerTitleView;
 
 import net.lucode.hackware.magicindicator.buildins.UIUtil;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
@@ -15,7 +17,6 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNav
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView;
 
 import java.util.List;
