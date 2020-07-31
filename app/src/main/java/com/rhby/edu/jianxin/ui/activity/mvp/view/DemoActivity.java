@@ -27,6 +27,7 @@ import com.congda.baselibrary.widget.dialogfragment.IMLoginAgreeDialog;
 import com.congda.baselibrary.widget.loading.IMShowLoadiongUtils;
 import com.rhby.edu.jianxin.R;
 import com.rhby.edu.jianxin.ui.activity.AnimationActivity;
+import com.rhby.edu.jianxin.ui.activity.KeyBoardActivity;
 import com.rhby.edu.jianxin.ui.activity.RecycleDemoActivity;
 import com.rhby.edu.jianxin.ui.activity.StartTypeActivity;
 import com.rhby.edu.jianxin.ui.activity.mvp.contract.DemoContract;
@@ -289,7 +290,7 @@ public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements De
     }
 
     private void btn14OnClick() {
-//        startActivity(KeyBoardActivity.class,false);
+        startActivity(KeyBoardActivity.class,false);
     }
 
     private void btn15OnClick() {
