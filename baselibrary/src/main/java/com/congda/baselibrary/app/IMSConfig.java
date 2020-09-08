@@ -12,7 +12,7 @@ public class IMSConfig {
 
     public static final String APP_PACKNAME = "com.rhby.edu.jianxin";
 
-
+    public static final String BUGLY_APPID = "c08e7834d0";
     /**
      * (本带缓存路径)
      * mnt/sdcard/ 即为SD卡根路径

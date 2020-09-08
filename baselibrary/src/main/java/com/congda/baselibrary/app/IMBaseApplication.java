@@ -16,6 +16,7 @@ import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.tencent.bugly.crashreport.CrashReport;
 
 
 public class IMBaseApplication extends Application {
@@ -45,12 +46,13 @@ public class IMBaseApplication extends Application {
 
         IMPreferenceUtil.init(this);
         IMBaseManager.init(this);
-
+        //报错日志
         IMCrashHandler crashHandler = IMCrashHandler.getInstance();
         crashHandler.init(getApplicationContext());
-
         //注册监听每个activity的生命周期,便于堆栈式管理
         registerActivityLifecycleCallbacks(mCallbacks);
+        //配置bugly,第三个参数为SDK调试模式开关，为了保证运营数据的准确性，建议不要在异步线程初始化Bugly。
+        CrashReport.initCrashReport(getApplicationContext(), IMSConfig.BUGLY_APPID, true);
     }
 
     public static Context getContext() {
