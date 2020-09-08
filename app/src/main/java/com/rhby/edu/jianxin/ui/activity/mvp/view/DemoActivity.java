@@ -83,15 +83,17 @@ public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements De
     @BindView(R.id.iv1)
     ImageView iv1;
 
-    private Boolean isBind;
+
     private TimePickerView pvTime;
-    private ServiceConnection mConn;
     private OptionsPickerView pvOptions;
+
+    private ServiceConnection mdownConn;
+    private ServiceConnection mConn;
     private IMBindServiceDemo mServiceDemo;
     private IMDownLoadService mdownService;
 
-    private Boolean downBind;
-    private ServiceConnection mdownConn;
+    private boolean downBind;
+    private boolean isBind;
     @Override
     protected DemoPresenter createPresenter() {
         return new DemoPresenter();
@@ -118,7 +120,7 @@ public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements De
         food.add("B");
         food.add("C");
         pvOptions= IMTimePickerUtils.getOptionsPickerView(this,food);
-        initDownLoadService();
+
     }
 
     private void initDownLoadService() {
@@ -129,11 +131,10 @@ public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements De
                 IMDownLoadService.DownBind bind = (IMDownLoadService.DownBind)service;
                 mdownService = bind.getService();
                 mdownService.setProcessListener(DemoActivity.this);
+                mdownService.downLoadFile("data/upload/20200508/5eb5530f0019e.mp4");
             }
-
             @Override
             public void onServiceDisconnected(ComponentName componentName) {
-
             }
 
         };
@@ -294,9 +295,7 @@ public class DemoActivity extends IMBaseMvpActivity<DemoPresenter> implements De
     }
 
     private void btn15OnClick() {
-        if(mdownService!=null){
-            mdownService.downLoadFile("data/upload/20200508/5eb5530f0019e.mp4");
-        }
+        initDownLoadService();
     }
 
     private void btn16OnClick() {
