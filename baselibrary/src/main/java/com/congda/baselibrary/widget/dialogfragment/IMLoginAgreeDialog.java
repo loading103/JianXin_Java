@@ -36,6 +36,9 @@ public class IMLoginAgreeDialog extends IMBaseDialog implements View.OnClickList
         return R.layout.layout_dialog_login;
     }
 
+    /**
+     * dialog1是灰色半透背景，dialog2透明背景
+     */
     @Override
     protected int getDialogStyle() {
         return R.style.dialog2;
